@@ -4,10 +4,181 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>tabata-timer</title>
+
+    <!-- SEO: Title & Description -->
+    <title>Free Tabata Timer — Online HIIT Interval Timer</title>
+    <meta
+      name="description"
+      content="Free online Tabata timer for HIIT workouts, study sprints, and focus sessions. 20/10 intervals, custom rounds, sound cues. No ads, no signup."
+    />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://thetabatatimer.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://thetabatatimer.com/" />
+    <meta property="og:title"       content="Free Tabata Timer — Online HIIT Interval Timer" />
+    <meta property="og:description" content="Free online Tabata timer for HIIT workouts, study sprints, and focus sessions. No ads, no signup." />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary" />
+    <meta name="twitter:title"       content="Free Tabata Timer — Online HIIT Interval Timer" />
+    <meta name="twitter:description" content="Free online Tabata timer for HIIT workouts and focus sessions. No ads, no signup." />
   </head>
   <body>
+
+    <!-- React mounts here -->
     <div id="root"></div>
+
+    <!--
+      STATIC SEO CONTENT
+      Purpose: make page content visible to Google's first-pass crawler
+      before JavaScript renders. The React app renders the same text for
+      real users. The MutationObserver below removes this node the instant
+      React populates #root, so users never see a duplicate.
+    -->
+    <div id="seo-static" style="
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #c8d0e0;
+      background: #0f1b2d;
+      padding: 3rem 1.5rem;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+    ">
+
+      <h1 style="
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: center;
+        color: #ffffff;
+        margin: 0 0 0.5rem;
+      ">Free Online Tabata Timer</h1>
+
+      <p style="text-align:center; color:#8a95a8; margin:0 0 2.5rem;">
+        A clean, distraction-free interval timer for workouts, study sessions,
+        focus sprints, and more. No ads, no signup — just your intervals.
+      </p>
+
+      <section style="margin-bottom:2rem;">
+        <h2 style="
+          font-size: 0.7rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #8a95a8;
+          margin: 0 0 0.75rem;
+        ">What is Tabata?</h2>
+        <p style="margin:0;">
+          Tabata is a high-intensity interval training protocol developed by
+          Dr. Izumi Tabata. The classic format: 20 seconds of maximum effort,
+          10 seconds of rest, repeated 8 rounds. Research shows it significantly
+          improves both aerobic and anaerobic capacity in just 4 minutes.
+        </p>
+      </section>
+
+      <section style="margin-bottom:2rem;">
+        <h2 style="
+          font-size: 0.7rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #8a95a8;
+          margin: 0 0 0.75rem;
+        ">How to use this timer</h2>
+        <ul style="margin:0; padding-left:1.25rem;">
+          <li style="margin-bottom:0.4rem;">
+            Pick a preset or tap the settings icon to set custom work, rest,
+            and round values.
+          </li>
+          <li style="margin-bottom:0.4rem;">
+            Press Start — or hit Spacebar — and follow the phase color:
+            coral for work, sage for rest.
+          </li>
+          <li>
+            Sound cues fire in the final 3 seconds of each phase.
+            Settings save automatically.
+          </li>
+        </ul>
+      </section>
+
+      <section style="margin-bottom:2rem;">
+        <h2 style="
+          font-size: 0.7rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #8a95a8;
+          margin: 0 0 0.75rem;
+        ">Use cases</h2>
+        <ul style="margin:0; padding-left:1.25rem;">
+          <li style="margin-bottom:0.4rem;">
+            <strong style="color:#dde3ed;">Workouts</strong> —
+            sprints, kettlebell circuits, bodyweight HIIT, mobility holds.
+          </li>
+          <li style="margin-bottom:0.4rem;">
+            <strong style="color:#dde3ed;">Studying</strong> —
+            active recall sprints with short breaks to consolidate memory.
+          </li>
+          <li style="margin-bottom:0.4rem;">
+            <strong style="color:#dde3ed;">Focus sessions</strong> —
+            deep work blocks with structured rest, lighter than Pomodoro.
+          </li>
+          <li>
+            <strong style="color:#dde3ed;">Decluttering</strong> —
+            timed effort bursts to stay in motion without burning out.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 style="
+          font-size: 0.7rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #8a95a8;
+          margin: 0 0 0.75rem;
+        ">Tips</h2>
+        <ul style="margin:0; padding-left:1.25rem;">
+          <li style="margin-bottom:0.4rem;">
+            Fullscreen mode makes digits readable from across the room.
+          </li>
+          <li style="margin-bottom:0.4rem;">
+            Wake Lock keeps your screen on during workouts.
+          </li>
+          <li>
+            Use Spacebar to start, pause, and resume hands-free.
+          </li>
+        </ul>
+      </section>
+
+    </div>
+
+    <!-- React app bundle -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Remove #seo-static once React has rendered into #root -->
+    <script>
+      (function () {
+        var staticEl = document.getElementById('seo-static');
+        if (!staticEl) return;
+        var root = document.getElementById('root');
+        if (!root) return;
+        if (root.children.length > 0) {
+          staticEl.remove();
+          return;
+        }
+        var observer = new MutationObserver(function () {
+          if (root.children.length > 0) {
+            staticEl.remove();
+            observer.disconnect();
+          }
+        });
+        observer.observe(root, { childList: true });
+      })();
+    </script>
+
   </body>
 </html>
